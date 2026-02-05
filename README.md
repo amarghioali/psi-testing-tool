@@ -185,15 +185,15 @@ Open your project in Cursor and provide this information:
 
 **Example 1: CLS Issue**
 ```
-I have a CLS issue on [TEMPLATE_NAME] template pages.
+I have a CLS issue on [PAGE_TYPE] pages.
 
 PSI Results (Mobile):
 - Current CLS: 0.213 (POOR) - threshold is 0.1
-- Culprit element: <div class="columns-wrapper">
-- URL: https://branch--site--repo.aem.page/page-url
+- Culprit element: <div class="hero-wrapper">
+- URL: https://your-site.com/problem-page
 
 Requirements:
-- Fix should be in template-specific files: templates/[name]/[name].css or .js
+- Keep changes minimal and focused
 - Avoid changing global files unless necessary
 - I'll validate with: npm run validate
 
@@ -205,24 +205,25 @@ Please:
 
 **Example 2: LCP Issue**
 ```
-I have an LCP issue on [TEMPLATE_NAME] template pages.
+I have an LCP issue on [PAGE_TYPE] pages.
 
 PSI Results (Mobile):
 - Current LCP: 3.8s (POOR) - threshold is 2.5s
 - Main element: Hero image loading slowly
-- URL: https://branch--site--repo.aem.page/page-url
+- URL: https://your-site.com/problem-page
 
 Please optimize image loading to improve LCP below 2.5s.
 ```
 
 **Example 3: Performance Score**
 ```
-Performance score is 65/100 on [TEMPLATE_NAME] pages.
+Performance score is 65/100 on [PAGE_TYPE] pages.
 
 Issues identified by PSI:
 - LCP: 2.8s
 - CLS: 0.15
 - TBT: 450ms
+- URL: https://your-site.com/problem-page
 
 Please analyze and fix the main bottlenecks.
 ```
@@ -233,16 +234,16 @@ After Cursor implements the fix:
 
 ```bash
 git add .
-git commit -m "fix(CLS): reserve space for hero section on program-detail"
+git commit -m "fix(CLS): reserve space for hero section"
 git push origin your-branch
 ```
 
 ### Step 4: Wait for Deployment
 
-AEM needs time to rebuild your branch:
+Wait for your platform to rebuild/deploy:
 
 ```bash
-sleep 45  # Wait 45 seconds
+sleep 45  # Wait 45 seconds for deployment
 ```
 
 ### Step 5: Validate the Fix
@@ -307,10 +308,10 @@ npm start -- --both
 
 ```bash
 # Before fix
-node index.js https://main--site.com/page > before.txt
+node index.js https://your-site.com/page > before.txt
 
-# After fix (on your branch)
-node index.js https://branch--site.com/page > after.txt
+# After fix (after deployment)
+node index.js https://your-site.com/page > after.txt
 
 # Compare
 diff before.txt after.txt
@@ -458,22 +459,36 @@ Each validation uses 3 requests per URL. If you hit limits, wait a few minutes.
 
 ---
 
-## Real-World Success Stories
+## What You Can Fix With This Tool
 
-### Example 1: CLS Fix
-**Project:** AEM EDS (extweb-academy)  
-**Problem:** CLS 0.213 on program-detail pages (mobile) - failing Core Web Vitals  
-**Root Cause:** Template CSS loading too late (`loadLazy()` instead of `loadEager()`)  
-**Solution:** Modified `scripts/scripts.js` to load CSS in `loadEager()` for program-detail template  
-**Result:** CLS 0.027 (89% improvement ✅), Performance 100/100  
-**Validation:** All 3 runs passed consistently  
-**Time to Fix:** ~30 minutes using this workflow with Cursor AI
+This tool helps you validate fixes for all Core Web Vitals:
 
-### The Tool Works For All Core Web Vitals
-- ✅ **CLS fixes** - Reserve space, prevent layout shifts
-- ✅ **LCP optimization** - Image optimization, lazy loading, preloading
-- ✅ **FID improvements** - Code splitting, defer non-critical JS
-- ✅ **Performance score** - Overall optimization and best practices
+### ✅ CLS (Cumulative Layout Shift)
+- Reserve space for dynamic content
+- Fix layout shifts from images, fonts, or injected content
+- Validate that fixes work consistently
+
+### ✅ LCP (Largest Contentful Paint)
+- Optimize image loading
+- Improve server response times
+- Validate loading performance improvements
+
+### ✅ FID (First Input Delay)
+- Optimize JavaScript execution
+- Reduce blocking time
+- Improve page interactivity
+
+### ✅ Performance Score
+- Overall page optimization
+- Best practices compliance
+- Track improvements over time
+
+### Typical Results
+With proper fixes and this validation workflow:
+- **CLS:** 0.2+ reduced to < 0.1 (✅ passing)
+- **Performance:** Improved to 90+ consistently
+- **Time to fix:** 30-60 minutes with Cursor AI
+- **Validation:** 3 consistent passing runs
 
 ---
 
