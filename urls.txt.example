@@ -1,0 +1,16 @@
+# PSI Testing Tool - URLs to Test
+# Add one URL per line
+# Lines starting with # are comments
+
+# Example URLs (replace with your own):
+https://example.com/
+https://example.com/products
+https://example.com/about
+
+# You can organize with comments:
+# Production URLs
+# https://mysite.com/page1
+# https://mysite.com/page2
+
+# Staging URLs
+# https://staging.mysite.com/page1

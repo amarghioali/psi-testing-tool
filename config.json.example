@@ -1,0 +1,19 @@
+{
+  "apiKey": "YOUR_GOOGLE_API_KEY_HERE",
+  "thresholds": {
+    "cls": 0.1,
+    "lcp": 2500,
+    "fid": 100,
+    "performance": 90
+  },
+  "options": {
+    "saveResults": true,
+    "resultsDir": "./results",
+    "verbose": false
+  },
+  "validation": {
+    "runs": 3,
+    "intervalSeconds": 45,
+    "requireAllPass": true
+  }
+}

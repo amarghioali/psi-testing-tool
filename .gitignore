@@ -1,0 +1,16 @@
+# User-specific configuration (contains API keys and URLs)
+config.json
+urls.txt
+
+# Test results
+results/
+
+# Node modules (if any get added)
+node_modules/
+
+# MacOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/

@@ -1,0 +1,25 @@
+{
+  "name": "psi-testing-tool",
+  "version": "1.0.0",
+  "description": "PageSpeed Insights testing tool for Core Web Vitals (CLS, LCP, FID) and performance validation",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node index.js",
+    "validate": "node index.js --validate"
+  },
+  "keywords": [
+    "pagespeed",
+    "lighthouse",
+    "core-web-vitals",
+    "cls",
+    "lcp",
+    "fid",
+    "performance",
+    "web-vitals",
+    "testing"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}
